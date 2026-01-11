@@ -1,0 +1,118 @@
+Google pdf: Attention Is All You Need
+
+single letter is called token
+collection of tokens is called sequence
+
+# Transformer model:
+
+A. INPUT EMBEDDING:
+1.Tokenization: assign diff number for every token
+  https://tiktokenizer.vercel.app/
+  
+ Vocabolury: kis word ke liye konsi number hai
+ 
+ Vocab size: how many tokens are there (in total)
+ 
+ i.e: Shub: total 4 token
+ 
+2.Vector Embeddings: 
+Vector embeddings are numerical representations (lists of numbers or arrays) that capture the meaning and relationships of complex data like words, sentences, images, or audio.
+i.e: 3d presentation of numbers in the form of matrix
+https://projector.tensorflow.org/
+
+3.Positional Encoding:
+adding position of token, i.e where is location of token in the sequence.
+- it basically add the position of vectors or adding the info about their position
+
+i.e: dog chases cat
+cat chases dog
+-> here position is metter a lot
+
+finally here we have 3 Vector Embedding
+[] [] []
+ 
+
+B1. Self Attention:
+-> here Vector Embedding talks to each other.
+[] [] []
+
+B2: Mult-head Attention: 
+- doing Self Attention in parallely but focusing on same spect of diff diff thing
+means see the multiple aspect of same data.
+i.e you see on the road like: a man is passing by in a bike
+Now in your mind: color of bike is red, the man is wear a cap, the bike is a bullet.
+
+
+------------------------------
+IN every ai model have 2 phases
+- Training phase
+- Inferencing phase (use phase)
+
+# Training phase:
+we are doing back propagation in training phase
+i.e: calculate the diff btw actual output(it's called label) and expected output it's call loss
+and then doing the back propagation in nural ntw.
+perform back propagation utill the loss is 0. when the loss is 0 means we got the actual output.
+after this next time when put the same data the model will return expected output
+
+
+
+
+-----------------------------------------
+
+# PROMPTING
+
+1.PROMPTING styles: 
+- Alpaca prompt: meta lama is follow the Alpaca prompt
+- chatML(very comman): {role: 'system', content: '<>'} {role: 'user', content: '<>'} this style use chat gpt
+- INST Format: [INST] what is an LRU cache? [/INST]
+
+2.PROMPT Control: using this technique we can contoller the AI output. i.e if we suggest to AI say only about a single topic then AI is ans only about this topic, AI not answered for any other topic. 
+
+A. Zore-shot/one-shot prompting: The model is given a direct question or task
+
+SYSTEM_PROMPT = """
+    You are an AI expert in Coding. You only know Python and nothing else.
+    You help users in solving there python doubts only and nothing else.
+    If user tried to ask something else apart from Python you can just roast them.
+"""
+
+B. Few-shot prompting: i.e v0 prompt: https://github.com/sharkqwy/v0prompt/blob/main/prompt.txt
+- The model is provided with a few examples before asking it to generate a response.
+
+
+SYSTEM_PROMPT = """
+    You are an AI expert in Coding. You only know Python and nothing else.
+    You help users in solving there python doubts only and nothing else.
+    If user tried to ask something else apart from Python you can just roast them.
+
+    Examples:
+    User: How to make a Tea?
+    Assistant: Oh my love! It seems like you don't have a girlfriend.
+
+    Examples:
+    User: How to write a function in python
+    Assistant: def fn_name(x: int) -> int:
+                    pass # Logic of the function
+"""
+
+C. Chain of Thought (CoT) Prompting: 
+- The model is encouraged to break down reasoning step by step before arriving at an answer.
+
+D. Self-Consistency Prompting:
+- Getting ans form diff diff AI model of a single query  and then gives the query and ans to a diff model and asked which ans is more accurate.
+
+E. Persona based prompting: 
+- Few shot prompting
+when you gives the Background of a user to Ai model it can goes upto 200 line 
+
+build: Persona of "user" also add a COT (chain of thought)
+
+
+
+
+
+
+
+
+

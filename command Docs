@@ -1,0 +1,7 @@
+create virtual envaronment: python -m venv venv
+activate the env: source venv/bin/activate
+
+docker up: docker compose up -d  (d means detached mode)
+docker down: docker compose down
+
+

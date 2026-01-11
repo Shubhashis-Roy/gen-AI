@@ -1,0 +1,41 @@
+RAG: Retrival Augmented Generation
+
+Structure of RAG:
+
+[Data Source] --> LLM (System Prompt) --> Chat
+
+1.Data Source: may be the data is come from DB, pdf file or anything else.
+2.LLM (System Prompt): put the data on LLM System Prompt (LLM model means state of the art(SOTA) AI model).
+3.Then start chatting with LLM.
+
+#HOW TO DO OPTIMAL RAG:
+- chunking the pdf/data Source
+- check the rag-pipeline img
+
+# chunking/spliting pdf or data scoure: 
+1. Ingestion/Indexing: 
+- spliting the data source and make a vector embedding of that spliting data scoures and then store in vector DB.  
+
+2. Retrival: 
+- ref img: indexing_retrival.png
+- getting the query from user and create vector embedding(not to store in DB) then search in vector Db where already 
+store the vector embedding of that spliting data scoures.
+- when you search definatly you can getting the relevent spliting data scoures which is related to user query.
+- finally send this data source and user query to LLM model
+- after that LLM model gives back a proper answer.
+
+# how vector db search work [where data is store in vector embedding]
+let's say data scoure VE is [1,2,3,4,5,6,7,8]
+user query VE is [4.78]
+
+now user query VE is near of 5 or we can say in btw 4 and 5 means return 4 and 5 data scoure from DB.
+and this [4,5] data scoure is related to user query.
+
+# vector DB name:
+- Pinecone (cloud, paid)
+- Astra DB
+- Chroma DB
+- Milvus DB
+- PG vector (not native vector DB)
+- Weaviate 
+- QDrant DB (lightweight, spin up time is fast, good DB)

@@ -1,0 +1,11 @@
+agentic-AI:
+
+streamlit
+
+LLM VS agent
+
+ToDo:
+- create a react app.
+- after create the app should be run on web browser.
+- we also can update/modify the functionality and UI.
+
