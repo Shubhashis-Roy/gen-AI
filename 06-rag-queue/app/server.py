@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
-from .queue.connection import queue
-from .queue.worker import process_query
+from app.queue.connection import queue
+from app.queue.worker import process_query
 
 app = FastAPI()
 

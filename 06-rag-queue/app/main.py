@@ -1,4 +1,4 @@
-from .server import app
+from app.server import app
 import uvicorn
 
 def main():
